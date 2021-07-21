@@ -8,14 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        Text("Hello, world!")
-            .padding()
-    }
+  @State var showOnboarding: Bool = true
+  
+  var body: some View {
+    HomeView()
+      .fullScreenCover(isPresented: $showOnboarding) {
+        OnboardingView()
+      }
+  }
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+  static var previews: some View {
+    ContentView()
+  }
 }
